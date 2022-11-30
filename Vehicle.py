@@ -1,22 +1,30 @@
 class Vehicle:
-    pass
+    
+    #class level attribute
+    type = "ground"
+    propulsion = "battery"
 
-bug_object = Vehicle() #object of vehicle class -- instance of vehicle class
-turtle_object = Vehicle() 
-rover_object = Vehicle()
+    def __init__(self, name, color, num_wheels, speed):
+        self.name = name
+        self.color = color
+        self.num_wheels = num_wheels
+        self.speed = speed
+        self.type = "ground"
 
-bug_object.color = "yellow"
-bug_object.num_wheels = 4
-bug_object.speed = 1
+    def print_details(self):
+        print(self.name, 'is', self.color, 'and is able to drive', self.speed, 'mph')
 
-turtle_object.color = "green"
-turtle_object.num_wheels = 2
-turtle_object.speed = 5
+    def paint_vehicle(self, newcolor):
+        self.color = newcolor
 
-rover_object.color = "purple"
-rover_object.num_wheels = 4
-rover_object.speed = 25
+bug_object = Vehicle("beetle", "yellow", 4, 1) #object of vehicle class -- instance of vehicle class
+turtle_object = Vehicle("turtlebot", "green", 2, 5) 
+rover_object = Vehicle("rover", "purple", 4, 25)
 
-print(' This vehicle is ', bug_object.color, ' and is able to drive ', bug_object.speed, ' mph ')
-print(' This vehicle is ', turtle_object.color, ' and is able to drive ', turtle_object.speed, ' mph ')
-print(' This vehicle is ', rover_object.color,' and is able to drive ', rover_object.speed, ' mph ')
+bug_object.print_details()
+turtle_object.print_details()
+rover_object.print_details()
+
+bug_object.paint_vehicle("blue")
+
+bug_object.print_details()
